@@ -1,4 +1,2 @@
-module AutoolNotebook
-  class ApplicationController < ActionController::Base
+  class AutoolNotebook::ApplicationController < BaseToolController
   end
-end
