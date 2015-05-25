@@ -1,0 +1,40 @@
+<div class="row">
+
+  <div class="col-sm-12">
+
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+
+    <%= link_to create_path do %>
+    <div class="well">
+      <div class='row'>
+        <br /><br />
+        <div id="" class="col-sm-4">
+        </div>
+        <div id="" class="col-sm-4">
+          <%#= link_to users_toggle_relation_path(current_user.id), id: "user_rel_" + current_user.id.to_s, 'data-id' => current_user.id.to_s, :remote => true, data: {:confirm => 'Are you sure ?' }, :class => "btn-delete-relation"  do #%>
+            <!-- <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> -->
+          <%# end #%>
+          <%= render :partial => "users/thumbnail", :locals => {:user => current_user, :actions => false, :description => false} %>
+        </div>
+        <div id="" class="col-sm-4">
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+  <div class="col-sm-6">
+
+    <div id="users_relations" class="well">
+      <%= link_to translate("users_relations.new"), users_add_relation_path, remote: true, class: "btn btn-primary btn-sm pull-right" %>
+      <br /><br />
+      <%= render "users/relations" %>
+    </div>
+
+  </div>
+</div>

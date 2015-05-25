@@ -6,7 +6,17 @@ module AutoolNotebook
 
     # GET /notebooks
     def index
-      @notebooks = Notebook.all
+      #@notebooks = Notebook.all
+      @notebooks = Notebook.where(:owner => current_user)
+      if @notebooks.size == 0
+        render :new_user
+      elsif @notebooks.size == 1
+        #render :show
+      end
+    end
+    
+    def new_user
+
     end
 
     # GET /notebooks/1
