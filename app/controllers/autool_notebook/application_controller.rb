@@ -1,2 +1,2 @@
-  class AutoolNotebook::ApplicationController < BaseToolController
-  end
+class AutoolNotebook::ApplicationController < BaseToolController
+end
