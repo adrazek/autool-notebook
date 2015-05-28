@@ -3,16 +3,12 @@ require_dependency "autool_notebook/application_controller"
 module AutoolNotebook
   class NotebooksController < ApplicationController
     before_action :set_notebook, only: [:show, :edit, :update, :destroy]
+    before_action :set_own_notebooks, only: [:show]
+    layout "autool_notebook/layout", only: [:show]
 
     # GET /notebooks
     def index
-      #@notebooks = Notebook.all
       @notebooks = Notebook.where(:owner => current_user)
-      if @notebooks.size == 0
-        render :new_user
-      elsif @notebooks.size == 1
-        #render :show
-      end
     end
     
     def new_user
@@ -36,6 +32,7 @@ module AutoolNotebook
     def create
       @notebook = Notebook.new(notebook_params)
       @notebook.owner = current_user
+      @notebook.title = translate("notebooks.defaultTitle", {:username => @notebook.target.firstname})
 
       if @notebook.save
         redirect_to @notebook, notice: 'Notebook was successfully created.'
@@ -67,7 +64,11 @@ module AutoolNotebook
 
       # Only allow a trusted parameter "white list" through.
       def notebook_params
-        params.require(:notebook).permit(:title)
+        params.require(:notebook).permit(:title, :target_id)
+      end
+
+      def set_own_notebooks
+        @own_notebooks = Notebook.where(owner: current_user)
       end
   end
 end

@@ -1,0 +1,7 @@
+fr:
+  notebooks:
+    title: "Bienvenue sur Notebooks"
+    defaultTitle: "Notebook de %{username}"
+    new: "Créer un nouveau notebook"
+    noelement: "Vous n'avez créer aucun notebook jusqu'à aujourd'hui"
+    mine: "Notebooks déjà créés"

@@ -1,0 +1,18 @@
+<div style="padding:50px">
+  <div class="row">
+    <% if @own_notebooks.size > 1 %>
+      <div class="col-sm-2">
+        <% @own_notebooks.each_with_index do |notebook, index| %>
+          <%= link_to notebook_path(notebook) do %>
+            <%= render :partial => "autool_notebook/notebooks/thumbnail", :locals => {:notebook => notebook} %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="col-sm-10">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+<% parent_layout "tool" %>

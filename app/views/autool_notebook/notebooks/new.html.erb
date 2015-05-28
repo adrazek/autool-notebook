@@ -1,5 +1,37 @@
-<h1>New notebook</h1>
+<div class="row">
 
-<%= render 'form' %>
+  <div class="col-sm-12">
 
-<%= link_to 'Back', notebooks_path %>
+  </div>
+
+</div>
+
+<%= form_for(AutoolNotebook::Notebook.new) do |f| %>
+  <%= f.hidden_field :target_id, :id => "notebook_target_id" %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="well">
+        <div class='row'>
+          <br /><br />
+          <div id="" class="col-sm-4">
+          </div>
+          <div id="" class="col-sm-4 notebook_owner_btn" data-user-id="<%= current_user.id %>">
+            <%= render :partial => "users/thumbnail", :locals => {:user => current_user, :actions => false, :description => false} %>
+          </div>
+          <div id="" class="col-sm-4">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-6">
+
+      <div id="users_relations" class="well">
+        <%= link_to translate("users_relations.new"), users_add_relation_path, remote: true, class: "btn btn-primary btn-sm pull-right" %>
+        <br /><br />
+        <%= render :partial => "users/relations", :locals => {thumb_class: "notebook_owner_btn" } %>
+      </div>
+
+    </div>
+  </div>
+<% end %>
