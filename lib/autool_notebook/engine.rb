@@ -9,8 +9,8 @@ module AutoolNotebook
       tracking_logger.debug "AutoolNotebook::Engine specific locale settings are set. Def locale == :fr\n\n"
     end
 
-    require "rubygems"
-    require "simple_calendar"
+    #require "rubygems"
+    #require "simple_calendar"
 
   end
 end
