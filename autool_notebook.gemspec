@@ -7,11 +7,11 @@ require "autool_notebook/version"
 Gem::Specification.new do |s|
   s.name        = "autool_notebook"
   s.version     = AutoolNotebook::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of AutoolNotebook."
-  s.description = "TODO: Description of AutoolNotebook."
+  s.authors     = ["Arnaud DRAZEK"]
+  s.email       = ["adrazek@gmail.com"]
+  s.homepage    = "http://autool.no-sandbox.com"
+  s.summary     = "Summary of AutoolNotebook."
+  s.description = "Description of AutoolNotebook."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
